@@ -2,6 +2,6 @@
 ---
 # Title
 
-[HOME](../Antiguo/README.md)
+[HOME](../../README.md)
 
 ---
