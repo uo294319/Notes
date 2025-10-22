@@ -6,6 +6,7 @@
 
 ---
 ## T0 - Introducción
+([Link](T0.md))
 - Definición de Seguridad (3)
 - SGSI
 	- Objetivos (5)
@@ -15,7 +16,19 @@
 	- Niveles Madurez (4)
 - Defensa en profundidad (diagrama - 5)
 ---
-## T1 - Legislación
-- 
-- Leyes EU (5)
-- Leyes ES (7)
+## T1.1 - Legislación
+([Link](T1-1.md))
+- Todas
+	- Leyes EU (5)
+	- Leyes ES (7)
+- RGPD - LOPD-GDD
+	- Diagrama
+	- Derechos interesados (4 + 4)
+- LSSI-CE (2 -> 3 + 1)
+- ENS def.
+---
+## T1.2 - Normas y Estándares
+([Link](T1-2.md))
+- Def. Gobernanza
+- ISO/IEC 27000 (4 -> 1 + 2 + 4 + 1)
+---
