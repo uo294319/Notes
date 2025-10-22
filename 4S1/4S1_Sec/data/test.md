@@ -32,3 +32,14 @@
 - Def. Gobernanza
 - ISO/IEC 27000 (4 -> 1 + 2 + 4 + 1)
 ---
+## T2.1 - Políticas de Seguridad
+([Link](T2-1.md))
+- Def. Políticas + Tipos
+- Diagrama política, norma, directiva y procedimientos
+---
+## T2.2 - Fases de Análisis y Gestión de Riesgos
+([Link](T2-2.md))
+- Fases (4 -> 3 + 2 + 2 + 1)
+- Diagrama proceso
+- Tabla de evaluación de Impacto
+- Selección de medidas
