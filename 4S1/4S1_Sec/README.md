@@ -15,7 +15,7 @@
 4. **Seguridad de los Datos**
 	1. [Cifrado Simétrico (AES)](data/T3-1.md)
 	2. [Cifrado Asimétrico](data/T3-2.md)
-	3. Integridad de Mensajes (Hash)
+	3. [Funciones de Resumen (Hash)](data/T3-3.md)
 	4. Autenticación de Mensajes (MAC)
 	5. Firma Digital
 5. **Seguridad de los Servicios**
