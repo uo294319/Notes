@@ -22,5 +22,5 @@
 	5. [Firma Digital](data/T3-7.md)
 5. **Seguridad de los Servicios**
 	1. [Certificados digitales](data/T4-1.md)
-	2. Infraestructura de Clave Pública (PKI)
+	2. [Infraestructura de Clave Pública (PKI)](data/T4-2.md)
 	3. Regulación de Certificados y Servicios de Certificación
