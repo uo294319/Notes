@@ -57,3 +57,8 @@
 	- Rondas (3 -> 1 + 4 + 3)
 - Discos Auto-cifrados (SEDs)
 ---
+## T3.2 - Cifrado Asimétrico
+([Link](T3-2.md))
+- Generación de claves + Cifrado/Descifrado
+- Relleno (PKCS#1 y OAEP)
+- Diffie-Hellman (4 fases)
