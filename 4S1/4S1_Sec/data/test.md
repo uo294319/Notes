@@ -62,3 +62,19 @@
 - Generación de claves + Cifrado/Descifrado
 - Relleno (PKCS#1 y OAEP)
 - Diffie-Hellman (4 fases)
+---
+## T3.3 - Funciones de Resumen (Hash)
+([Link](T3-3.md))
+- Def y Propiedades (3 básicas + 4)
+- Autenticación (básica + 4)
+- Firma de mensajes (Simple + Confidencialidad)
+- Tipos (MD + SHA)
+---
+## T3.4 - Autenticación de Mensajes (MAC)
+([Link](T3-4.md))
+- Mediante cifrado (3)
+---
+## T3.5 - Firma Digital
+([Link](T3-5.md))
+
+---
