@@ -66,15 +66,18 @@
 ## T3.3 - Funciones de Resumen (Hash)
 ([Link](T3-3.md))
 - Def y Propiedades (3 básicas + 4)
-- Autenticación (básica + 4)
+- Autenticación con hash (básica + 4)
 - Firma de mensajes (Simple + Confidencialidad)
 - Tipos (MD + SHA)
 ---
 ## T3.4 - Autenticación de Mensajes (MAC)
 ([Link](T3-4.md))
 - Mediante cifrado (3)
+- MAC funcionamiento
+- MAC tipos (3)
 ---
 ## T3.5 - Firma Digital
 ([Link](T3-5.md))
-
+- Def + Problemas (4) + Requisitos (3) + Tipos (2x2) + Componentes (3)
+- RSA-SSA y RSA-PSS
 ---
