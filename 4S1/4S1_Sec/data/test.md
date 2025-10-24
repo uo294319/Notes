@@ -25,7 +25,7 @@
 	- Diagrama
 	- Derechos interesados (4 + 4)
 - LSSI-CE (2 -> 3 + 1)
-- ENS def.
+- ENS def. + 5 + 8
 ---
 ## T1.2 - Normas y Estándares
 ([Link](T1-2.md))
@@ -66,7 +66,7 @@
 ## T3.3 - Funciones de Resumen (Hash)
 ([Link](T3-3.md))
 - Def y Propiedades (3 básicas + 4)
-- Autenticación con hash (básica + 4)
+- Autenticación (integridad) de mensaje (básica + 4) 
 - Firma de mensajes (Simple + Confidencialidad)
 - Tipos (MD + SHA)
 ---
