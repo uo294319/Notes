@@ -18,8 +18,8 @@
 	1. [Cifrado Simétrico (AES)](data/T3-1.md)
 	2. [Cifrado Asimétrico](data/T3-2.md)
 	3. [Funciones de Resumen (Hash)](data/T3-3.md)
-	4. [Autenticación de Mensajes (MAC)](data/T3-6.md)
-	5. [Firma Digital](data/T3-7.md)
+	4. [Autenticación de Mensajes (MAC)](data/T3-4.md)
+	5. [Firma Digital](data/T3-5.md)
 5. **Seguridad de los Servicios**
 	1. [Certificados digitales](data/T4-1.md)
 	2. [Infraestructura de Clave Pública (PKI)](data/T4-2.md)
