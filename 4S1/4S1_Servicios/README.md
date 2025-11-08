@@ -13,5 +13,5 @@
 	- [HTTP. Conceptos Avanzados](data/T2-2.md)
 - **T3 - DNS, acceso remoto, transferencia de archivos**
 	- [DNS (Domain Name Server)](data/T3-1.md)
-	- [Acceso remoto](../4S1_Sec/data/T3-2.md)
+	- [Acceso remoto](data/T3-2.md)
 	- Transferencia de archivos
