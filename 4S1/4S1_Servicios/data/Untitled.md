@@ -76,45 +76,29 @@ sequenceDiagram
     note over MUA,MTA: Conexión TCP al puerto 25
     MTA->>MUA: 220 smtp.server.com service ready
     
-    alt Opciones básica (1) y con má
+    alt Opciones Funcionalidad
 	    MUA->>MTA: (Opción 1) HELO cliente.ejemplo.com
 	    MUA->>MTA: (Opción 2) EHLO cliente.ejemplo.com
+	    MTA->>MUA: 250 - OK
 	end
 	
+    MUA->>MTA: MAIL FROM: <remitente@dominio1>
     MTA->>MUA: 250 - OK
-    MTA->>MUA: 250 - STARTTLS
-    MTA->>MUA: 250 - AUTH LOGIN PLAIN
-    MTA->>MUA: 250 OK
+    
+    MUA->>MTA: RCPT TO: <destino1@dominio2>
+    MTA->>MUA: 250 - OK
 
-    alt Se usa cifrado
-        MUA->>MTA: STARTTLS
-        MTA->>MUA: 220 Ready to start TLS
-        note right of MUA: TLS handshake (capa cifrada)
-        activate MUA
-        deactivate MUA
-        MUA->>MTA: EHLO cliente.ejemplo.com
-        MTA->>MUA: 250 OK
-    end
-
-    alt Si se requiere autenticación
-        MUA->>MTA: AUTH LOGIN
-        MTA->>MUA: 334 VXNlcm5hbWU6   (base64 challenge)
-        MUA->>MTA: <usuario_base64>
-        MTA->>MUA: 334 UGFzc3dvcmQ6   (base64 challenge)
-        MUA->>MTA: <pass_base64>
-        MTA->>MUA: 235 Authentication successful
-    end
-
-    MUA->>MTA: MAIL FROM:<remitente@ejemplo.com>
-    MTA->>MUA: 250 OK
-    MUA->>MTA: RCPT TO:<destino@ejemplo.org>
-    MTA->>MUA: 250 OK
+	MUA->>MTA: RCPT TO: <destino2@dominio3>
+    MTA->>MUA: 250 - OK
+    
     MUA->>MTA: DATA
-    MTA->>MUA: 354 End data with <CR><LF>.<CR><LF>
-    MUA->>MTA: (Encabezados + cuerpo del mensaje)
+    MTA->>MUA: 354 - Start mail input; end with <CRLF>.<CRLF>
+    MUA->>MTA: Línea 1
+    MUA->>MTA: ...
+    MUA->>MTA: Línea N
     MUA->>MTA: .
-    MTA->>MUA: 250 Message accepted for delivery
+    MTA->>MUA: 250 - OK
+    
     MUA->>MTA: QUIT
-    MTA->>MUA: 221 Bye
-    note over MTA: El MTA entrega el mensaje a destino (lookup MX, entrega a otro MTA, etc.)
+    MTA->>MUA: 221 smtp.server.com closing transmission chanel
 ```
