@@ -61,9 +61,9 @@
 			- Si contenido no múltiplo de `3B` completar con `0`s. 
 				- Si último trozo `1B` terminar con `==`, si `2B` con `=`
 ---
-## Simple Mail Transfer Protocol
+## Simple Mail Transfer Protocol (SMTP)
 - **Def**
-	- Sobre TCP.
+	- Sobre TCP 25.
 	- Puede ir autenticado (entre MUA y MTA) y opcionalmente cifrado (TLS)
 - **Funcionamiento**. Usa `\r\n`como terminador.
 	- Petición: `<comando> <parámetros>
@@ -82,9 +82,14 @@ sequenceDiagram
 	    MTA->>MUA: 250 - OK
 	end
 	
-	alt Si EHLO permite
+	alt Cifrado (EHLO)
 		MUA->>MTA: STARTTLS
 		MTA->>MUA: 220 - Ready to start TLS
+	end
+	
+	alt Autenticación (EHLO)
+		MUA->>MTA: AUTH <LOGIN / PLAIN / OAuth2>
+		MTA->>MUA: ?
 	end
 	
     MUA->>MTA: MAIL FROM: <remitente@dominio1>
@@ -99,11 +104,15 @@ sequenceDiagram
     MUA->>MTA: DATA
     MTA->>MUA: 354 - Start mail input
     MUA->>MTA: Línea 1
-    MUA->>MTA: ...
-    MUA->>MTA: Línea N
+    MUA->>MTA: Línea 2
     MUA->>MTA: .
     MTA->>MUA: 250 - OK
     
     MUA->>MTA: QUIT
     MTA->>MUA: 221 smtp.server.com closing transmission chanel
 ```
+---
+## Post Office Protocol (POP3)
+- Def
+	- Sobre TCP 110
+	- Permite consultar número de mensajes, descargar y borrar.
