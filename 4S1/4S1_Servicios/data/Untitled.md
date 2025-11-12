@@ -9,17 +9,18 @@
 ---
 
 ## Introducción
-- Elementos
+- **Elementos**
 	- Remitente y Destinatario
-	- Message User Agent (MUA)
+	- Message User Agent (MUA).
+		- Cliente instalado en el ordenador del usuario que permite enviar y obtener correos.
 	- Message Transfer Agent (MTA)
 		- MTA Relay. Actúa como punto de entrada/salida en una intranet. Funciones de proxy.
 		- MTA Abierto. Permite envío sin autenticación. Usado por spammers
 	- Buzón
 		- Almacenado en el MTA destino.
-- Protocolos
+- **Protocolos**
 	- SMTP. Se usa para enviar mensajes del MUA al MTA y entre MTAs
-	- POP3 o IMAP. Se usan para obtener mensajes del buzón.
+	- POP3 e IMAP. Se usan para obtener mensajes del buzón.
 
 ---
 ## Mensaje
@@ -32,11 +33,11 @@
 		- Por primer MTA, si no las define MUA: `Date`, `From`, `To`, `Message-Id`
 		- MTAs intermedios `Received`
 		- Añadida por último MTA destino: `Return-Path`
-### Cuerpo (MIME)
-- **Def (MIME)**.
+### Cuerpo
+- **Formato**. Secuencia de líneas compuestas por caracteres ASCII de `7b`.
+- **Multipurpose Internet Mail Extensions (MIME)**.
 	- Permite transmitir diversos contenidos como binarios en el cuerpo.
 	- Permite varias partes en mismo mensaje (adjuntos, alternativos, etc)
-- **Formato**. Secuencia de líneas compuestas por caracteres ASCII de `7b`.
 - **Cabeceras**.
 	- `MIME-version: <versión>`.
 	- `Content-Type: <type>`
@@ -59,3 +60,11 @@
 				- `52-61 = "0" - "9"` / `62 = "+"` / `63 = "/"`
 			- Si contenido no múltiplo de `3B` completar con `0`s. 
 				- Si último trozo `1B` terminar con `==`, si `2B` con `=`
+---
+## Simple Mail Transfer Protocol
+- Def
+	- Sobre TCP.
+	- Puede ir autenticado (entre MUA y MTA) y opcionalmente cifrado (TLS)
+- Funcionamiento
+	- Petición: `<comando> <parámetros>`
+	- Respuesta: `<código> <descripción>`
