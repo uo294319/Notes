@@ -1,20 +1,25 @@
----
-
----
 
 
 
 ---
-- Remitente y Destinatario
-- Message User Agent (MUA)
-- Message Transfer Agent (MTA)
-	- MTA Relay. Actúa como punto de entrada/salida en una intranet. Funciones de proxy.
-	- MTA Abierto. Permite envío sin autenticación. Usado por spammers
-- Buzón
-	- Almacenado en el MTA destino.
+# Correo
+
+[Back to index](../README.md)
+
 ---
-SMTP
-POP3 o IMAP
+
+## Introducción
+- Elementos
+	- Remitente y Destinatario
+	- Message User Agent (MUA)
+	- Message Transfer Agent (MTA)
+		- MTA Relay. Actúa como punto de entrada/salida en una intranet. Funciones de proxy.
+		- MTA Abierto. Permite envío sin autenticación. Usado por spammers
+	- Buzón
+		- Almacenado en el MTA destino.
+- Protocolos
+	- SMTP. Se usa para enviar mensajes del MUA al MTA y entre MTAs
+	- POP3 o IMAP. Se usan para obtener mensajes del buzón.
 
 ---
 ## Mensaje
@@ -48,4 +53,9 @@ POP3 o IMAP
 			- Caracteres no imprimibles como `=XX` siendo `XX` su código hex.
 			- Líneas limitadas a 76 caracteres. Si más largas, `=` al final de la línea cortada.
 		- `base64`
-			- Grupos de `3B` (`24b`) divididos en trozos de `6b`
+			- Grupos de `3B` (`24b`) divididos en trozos de `6b`.
+			- Cada trozo codificado como:
+				- `0-25 = "A"-"Z"` / `26-51 = "a"-"z"`
+				- `52-61 = "0" - "9"` / `62 = "+"` / `63 = "/"`
+			- Si contenido no múltiplo de `3B` completar con `0`s. 
+				- Si último trozo `1B` terminar con `==`, si `2B` con `=`
