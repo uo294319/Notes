@@ -62,9 +62,59 @@
 				- Si último trozo `1B` terminar con `==`, si `2B` con `=`
 ---
 ## Simple Mail Transfer Protocol
-- Def
+- **Def**
 	- Sobre TCP.
 	- Puede ir autenticado (entre MUA y MTA) y opcionalmente cifrado (TLS)
-- Funcionamiento
-	- Petición: `<comando> <parámetros>`
+- **Funcionamiento**. Usa `\r\n`como terminador.
+	- Petición: `<comando> <parámetros>
 	- Respuesta: `<código> <descripción>`
+```mermaid
+sequenceDiagram
+    participant MUA as MUA (Cliente)
+    participant MTA as MTA (Servidor SMTP)
+
+    note over MUA,MTA: Conexión TCP al puerto 25
+    MTA->>MUA: 220 smtp.server.com service ready
+    
+    alt Opciones básica (1) y con má
+	    MUA->>MTA: (Opción 1) HELO cliente.ejemplo.com
+	    MUA->>MTA: (Opción 2) EHLO cliente.ejemplo.com
+	end
+	
+    MTA->>MUA: 250 - OK
+    MTA->>MUA: 250 - STARTTLS
+    MTA->>MUA: 250 - AUTH LOGIN PLAIN
+    MTA->>MUA: 250 OK
+
+    alt Se usa cifrado
+        MUA->>MTA: STARTTLS
+        MTA->>MUA: 220 Ready to start TLS
+        note right of MUA: TLS handshake (capa cifrada)
+        activate MUA
+        deactivate MUA
+        MUA->>MTA: EHLO cliente.ejemplo.com
+        MTA->>MUA: 250 OK
+    end
+
+    alt Si se requiere autenticación
+        MUA->>MTA: AUTH LOGIN
+        MTA->>MUA: 334 VXNlcm5hbWU6   (base64 challenge)
+        MUA->>MTA: <usuario_base64>
+        MTA->>MUA: 334 UGFzc3dvcmQ6   (base64 challenge)
+        MUA->>MTA: <pass_base64>
+        MTA->>MUA: 235 Authentication successful
+    end
+
+    MUA->>MTA: MAIL FROM:<remitente@ejemplo.com>
+    MTA->>MUA: 250 OK
+    MUA->>MTA: RCPT TO:<destino@ejemplo.org>
+    MTA->>MUA: 250 OK
+    MUA->>MTA: DATA
+    MTA->>MUA: 354 End data with <CR><LF>.<CR><LF>
+    MUA->>MTA: (Encabezados + cuerpo del mensaje)
+    MUA->>MTA: .
+    MTA->>MUA: 250 Message accepted for delivery
+    MUA->>MTA: QUIT
+    MTA->>MUA: 221 Bye
+    note over MTA: El MTA entrega el mensaje a destino (lookup MX, entrega a otro MTA, etc.)
+```
