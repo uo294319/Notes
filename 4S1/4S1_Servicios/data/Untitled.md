@@ -116,3 +116,11 @@ sequenceDiagram
 - Def
 	- Sobre TCP 110
 	- Permite consultar número de mensajes, descargar y borrar.
+- Estados
+	- Autorización
+		- (Opción 1) Contraseña. Comandos `USER` y `PASS`
+		- (Opción 2)
+			- Servidor manda timestamp
+			- Usuario manda 
+	- Transacción
+	- Actualización
