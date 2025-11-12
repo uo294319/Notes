@@ -139,18 +139,25 @@ sequenceDiagram
 	- Mensajes originales se mantienen en el servidor. 
 	- Varios MUA pueden acceder a mensajes obteniendo copias consideradas caché.
 	- Se pueden clasificar mensajes en carpetas del servidor y realizar búsquedas.
+	- Tienen estado (entregado, visto...)
 - **Funcionamiento**. Etiquetas arbitrarias para seguimiento de respuestas.
 	- Comandos MUA: `<etiqueta> <comando> <parámetros>`
 	- Respuestas MTA:
 		- Datos o respuestas parciales sin etiquetar
 		- Resultado final etiquetado `<etiqueta> <código> <descripción>`
 - Protocolo con estado
-	1. Conexión establecida + Saludo de servidor
-	2. No autenticado. Permite autenticarse o logout
+	1. **Conexión establecida + Saludo de servidor**
+	2. **No autenticado**. Permite autenticarse o logout
 		1. Permite `STARTTLS` / `LOGIN` (nombre y clave) / `AUTHENTICATE` (otro método)
-	3. Autenticado. Gestión de varios buzones (carpetas)
-		1. `SELECT buzon` / `EXAMINE buzon` / `CREATE buzon`
-		2. `DELETE` / `RENAME` (No aplicables a `INBOX`)
-		3. `LIST <params>` / `STATUS buzon` / `APPEND buzón`
-	4. Seleccionado
-	5. Logout + cierre conexión
+	3. **Autenticado**. Gestión de varios buzones (carpetas)
+		1. A modo seleccionado: `SELECT buzon` (read-write) / `EXAMINE buzon` (read-only)
+		2. `CREATE buzon`
+		3. `DELETE` / `RENAME` (No aplicables a `INBOX`)
+		4. `LIST <params>` / `STATUS <buzon>` / `APPEND <buzon> <msgs>`
+	4. **Seleccionado**. Gestión de mensajes dentro de un buzón.
+		1. A modo autenticado: `CLOSE` / `EXPUNGE` (borra todos msgs antes)
+		2. `SEARCH <criterio>` 
+		3. `FETCH <parte>` (descarga solo una parte)
+		4. `STORE <opciones>` (modifica flags)
+		5. `CPY <msg> <buzon>`
+	5. **Logout + cierre conexión**
