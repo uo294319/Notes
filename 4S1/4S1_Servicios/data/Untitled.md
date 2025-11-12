@@ -135,13 +135,22 @@ sequenceDiagram
 		- Se borran los mensajes marcados.
 ---
 ## Internet Message Access Protocol (IMAP)
-- Def
+- **Def**
 	- Mensajes originales se mantienen en el servidor. 
 	- Varios MUA pueden acceder a mensajes obteniendo copias consideradas caché.
 	- Se pueden clasificar mensajes en carpetas del servidor y realizar búsquedas.
-- Funcionamiento. Etiquetas arbitrar
+- **Funcionamiento**. Etiquetas arbitrarias para seguimiento de respuestas.
 	- Comandos MUA: `<etiqueta> <comando> <parámetros>`
 	- Respuestas MTA:
 		- Datos o respuestas parciales sin etiquetar
-		- Resultado final etiquetado `<etiqueta> <`
-- 
+		- Resultado final etiquetado `<etiqueta> <código> <descripción>`
+- Protocolo con estado
+	1. Conexión establecida + Saludo de servidor
+	2. No autenticado. Permite autenticarse o logout
+		1. Permite `STARTTLS` / `LOGIN` (nombre y clave) / `AUTHENTICATE` (otro método)
+	3. Autenticado. Gestión de varios buzones (carpetas)
+		1. `SELECT buzon` / `EXAMINE buzon` / `CREATE buzon`
+		2. `DELETE` / `RENAME` (No aplicables a `INBOX`)
+		3. `LIST <params>` / `STATUS buzon` / `APPEND buzón`
+	4. Seleccionado
+	5. Logout + cierre conexión
