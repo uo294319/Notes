@@ -37,8 +37,11 @@ POP3 o IMAP
 	- `Content-Type: <type>`
 		- **Básicas**: `text/plain`, `text/html`, `image/jpeg`, `video/mpeg`...
 		- **Multiparte**:  (cada elemento interior tiene sus propias cabeceras)
-			- `multipart/mixed`. Multiples partes se . (Adjuntos, imágenes...)
-			- `multipart/alternative`. Varias alternativas. Se muestra una al destinatario.
+			- `multipart/mixed`. MUA muestra multiples partes. (Adjuntos, imágenes...)
+			- `multipart/alternative`. MUA muestra una de las alternativas.
+			- Separación partes:
+				- Define cadena arbitraria: `Content-Type: <type>; boundary="<cadena>"`
+				- Antes de cada parte `<cadena>`
 	- `Content-Transfer-Encoding <encoding>`
 		- `7bit`. ASCII puro.
 		- `quoted-printable`. 
