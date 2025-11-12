@@ -113,14 +113,25 @@ sequenceDiagram
 ```
 ---
 ## Post Office Protocol (POP3)
-- Def
+- **Def**
 	- Sobre TCP 110
 	- Permite consultar número de mensajes, descargar y borrar.
-- Estados
-	- Autorización
+	- Su finalidad es transferir los mensajes al MUA y borrarlos en el MTA.
+- **Estados**
+	- **Autorización**
 		- (Opción 1) Contraseña. Comandos `USER` y `PASS`
 		- (Opción 2)
 			- Servidor manda timestamp
 			- Usuario manda 
-	- Transacción
-	- Actualización
+	- **Transacción**
+		- `STAT`. Número de mensajes en buzón y total bytes buzón.
+		- `LIST [m]`. Cuantos bytes ocupa mensaje `m` o cada mensaje del buzón.
+		- `RETR m`. Descarga mensaje `m`.
+		- `DELE m`. Marca para borrado `m`.
+		- `TOP m n`.  Descarga primeras `n` líneas de mensaje `m`
+		- `QUIT`. Desconexión y borrado de mensajes marcados.
+	- **Actualización**
+		- Ocurre cuando el cliente manda `QUIT`. 
+		- Se borran los mensajes marcados.
+---
+## In
