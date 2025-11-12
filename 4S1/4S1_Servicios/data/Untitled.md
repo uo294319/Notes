@@ -19,14 +19,20 @@ POP3 o IMAP
 ---
 ## Mensaje
 ### Cabeceras
-- Formato: `Campo: valor\r\n`.
-- 
-- Definidas en el MUA
-	- `From`, `To`, `Reply-to`, `Cc`, `Bcc`, `Subject`, `Date`, `Message-Id`
-- Añadidas por MTAs: 
-	- Por primer MTA, si no las define MUA: `Date`, `From`, `To`, `Message-Id`
-	- MTAs intermedios `Received`
-	- Añadida por último MTA destino: `Return-Path`
-	- Fin encabezado: `\r\n\r\n`
-	- Cuerpo.
-- Cabeceras: 
+- **Formato**: Varios `Campo: valor\r\n` y terminadas por `\r\n\r\n`
+- **Algunas Cabeceras**
+	- Definidas en el MUA
+		- `From`, `To`, `Reply-to`, `Cc`, `Bcc`, `Subject`, `Date`, `Message-Id`
+	- Añadidas por MTAs: 
+		- Por primer MTA, si no las define MUA: `Date`, `From`, `To`, `Message-Id`
+		- MTAs intermedios `Received`
+		- Añadida por último MTA destino: `Return-Path`
+### Cuerpo (MIME)
+- **Def (MIME)**.
+	- Permite transmitir diversos contenidos como binarios en el cuerpo.
+	- Permite varias partes en mismo mensaje (adjuntos, alternativos, etc)
+- **Formato**. Secuencia de líneas compuestas por caracteres ASCII de `7b`.
+- Cabeceras.
+	- `MIME-version: <versión>`.
+	- `Content-Type: <tp`
+		- 
