@@ -32,7 +32,14 @@ POP3 o IMAP
 	- Permite transmitir diversos contenidos como binarios en el cuerpo.
 	- Permite varias partes en mismo mensaje (adjuntos, alternativos, etc)
 - **Formato**. Secuencia de líneas compuestas por caracteres ASCII de `7b`.
-- Cabeceras.
+- **Cabeceras**.
 	- `MIME-version: <versión>`.
-	- `Content-Type: <tp`
-		- 
+	- `Content-Type: <type>`
+		- **Básicas**: `text/plain`, `text/html`, `image/jpeg`, `video/mpeg`...
+		- **Multiparte**:  (cada elemento interior tiene sus propias cabeceras)
+			- `multipart/mixed`. Multiples partes se . (Adjuntos, imágenes...)
+			- `multipart/alternative`. Varias alternativas. Se muestra una al destinatario.
+	- `Content-Transfer-Encoding <encoding>`
+		- `7bit`. ASCII puro.
+		- `quoted-printable`. 
+		- `base64`
