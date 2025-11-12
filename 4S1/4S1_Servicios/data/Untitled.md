@@ -134,4 +134,14 @@ sequenceDiagram
 		- Ocurre cuando el cliente manda `QUIT`. 
 		- Se borran los mensajes marcados.
 ---
-## In
+## Internet Message Access Protocol (IMAP)
+- Def
+	- Mensajes originales se mantienen en el servidor. 
+	- Varios MUA pueden acceder a mensajes obteniendo copias consideradas caché.
+	- Se pueden clasificar mensajes en carpetas del servidor y realizar búsquedas.
+- Funcionamiento. Etiquetas arbitrar
+	- Comandos MUA: `<etiqueta> <comando> <parámetros>`
+	- Respuestas MTA:
+		- Datos o respuestas parciales sin etiquetar
+		- Resultado final etiquetado `<etiqueta> <`
+- 
