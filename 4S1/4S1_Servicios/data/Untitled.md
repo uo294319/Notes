@@ -41,7 +41,7 @@ POP3 o IMAP
 			- `multipart/alternative`. MUA muestra una de las alternativas.
 			- Separación partes:
 				- Define cadena arbitraria: `Content-Type: <type>; boundary="<cadena>"`
-				- Antes de cada parte `<cadena>`
+				- Antes de cada parte `--<cadena>`
 	- `Content-Transfer-Encoding <encoding>`
 		- `7bit`. ASCII puro.
 		- `quoted-printable`. 
