@@ -161,3 +161,4 @@ sequenceDiagram
 		4. `STORE <opciones>` (modifica flags)
 		5. `CPY <msg> <buzon>`
 	5. **Logout + cierre conexión**
+---
