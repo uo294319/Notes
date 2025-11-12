@@ -82,6 +82,11 @@ sequenceDiagram
 	    MTA->>MUA: 250 - OK
 	end
 	
+	alt Si EHLO permite
+		MUA->>MTA: STARTTLS
+		MTA->>MUA: 220 - Ready to start TLS
+	end
+	
     MUA->>MTA: MAIL FROM: <remitente@dominio1>
     MTA->>MUA: 250 - OK
     
@@ -92,7 +97,7 @@ sequenceDiagram
     MTA->>MUA: 250 - OK
     
     MUA->>MTA: DATA
-    MTA->>MUA: 354 - Start mail input; end with <CRLF>.<CRLF>
+    MTA->>MUA: 354 - Start mail input
     MUA->>MTA: Línea 1
     MUA->>MTA: ...
     MUA->>MTA: Línea N
