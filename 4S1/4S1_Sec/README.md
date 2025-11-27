@@ -27,7 +27,7 @@
 	4. [SSL/TLS](data/T4-4.md)
 	5. [IPsec](data/T4-5.md)
 	6. WiFi
-	7. UserAuth Local
+	7. [UserAuth Local](data/T4-7.md)
 	8. UserAuth en Red
 6. Seguridad Perimetral
 	1. Cortafuegos
