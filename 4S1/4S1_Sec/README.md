@@ -26,3 +26,10 @@
 	3. [Regulación de Certificados y Servicios de Certificación](data/T4-3.md)
 	4. [SSL/TLS](data/T4-4.md)
 	5. [IPsec](data/T4-5.md)
+	6. WiFi
+	7. UserAuth Local
+	8. UserAuth en Red
+6. Seguridad Perimetral
+	1. Cortafuegos
+	2. Malware y Anti-Malware
+7. Auditoría de Seguridad
