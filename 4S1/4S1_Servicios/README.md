@@ -19,4 +19,4 @@
 - T5 - 
 	- 
 	- Streaming Moderno
-	- Comunicacion en Tiempo REal
+	- Comunicacion en Tiempo Real
